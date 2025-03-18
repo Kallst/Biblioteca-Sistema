@@ -4,7 +4,7 @@ package autonoma.bibliotecagit.app.models;
 /**
  *
  * @author Juan Jacobo Cañas Henao
- * @since 20251403
+ * @since 20251703
  * @version 1.0.0
  */
 public class Libro {
