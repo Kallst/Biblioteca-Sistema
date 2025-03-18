@@ -1,7 +1,8 @@
 package autonoma.bibliotecagit.app.views;
-
 import autonoma.bibliotecagit.app.models.Biblioteca;
+import autonoma.bibliotecagit.app.models.Libro;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  * @author Luisa Fernanda Henao Posada
@@ -10,17 +11,28 @@ import javax.swing.ImageIcon;
  */
 public class BuscarLibros extends javax.swing.JDialog {
     private Biblioteca biblioteca;
-    
-    public BuscarLibros(java.awt.Frame parent, boolean modal) {
+    private VentanaPrincipal ventanaPrincipal;
+
+    public BuscarLibros(java.awt.Frame parent, boolean modal, VentanaPrincipal ventanaPrincipal, Biblioteca biblioteca) {
+        super(parent, modal); // Llamada al constructor de JDialog
         this.biblioteca = biblioteca;
+        this.ventanaPrincipal = ventanaPrincipal;
         initComponents();
-                this.setLocationRelativeTo(null);
-        try{
-            this.setIconImage(new ImageIcon(getClass().getResource("/autonoma/BibliotecaPOO/images/Biblioteca.png")).getImage());
-        }catch(Exception e){
-            
+        this.setLocationRelativeTo(parent); // Centrar la ventana respecto a la principal
+        // Cargar la imagen del ícono
+        try {
+            java.net.URL imageUrl = getClass().getResource("/autonoma/bibliotecagit/app/images/Biblioteca.png");
+            if (imageUrl == null) {
+                System.err.println("No se pudo encontrar la imagen en la ruta especificada.");
+            } else {
+                System.out.println("Ruta de la imagen: " + imageUrl.toExternalForm());
+                this.setIconImage(new ImageIcon(imageUrl).getImage());
+            }
+        } catch (Exception e) {
+            System.err.println("Error al cargar la imagen: " + e.getMessage());
         }
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -91,7 +103,30 @@ public class BuscarLibros extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    String idStr = jTextField1.getText().trim();
 
+        // Validar que el campo no esté vacío
+        if (idStr.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "El campo ID no puede estar vacío.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        try {
+            // Convertir el ID a entero
+            int id = Integer.parseInt(idStr);
+            // Buscar el libro en la biblioteca
+            Libro libro = biblioteca.buscarLibroPorId(id);
+            if (libro != null) {
+                // Mostrar los detalles del libro encontrado
+                String mensaje = "Libro encontrado:\n"
+                        + "ID: " + libro.getId() + "\n"
+                        + "Título: " + libro.getTitulo();
+                JOptionPane.showMessageDialog(this, mensaje, "Resultado de la búsqueda", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(this, "No se encontró un libro con el ID " + id, "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "El ID debe ser un número válido.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_jTextField1ActionPerformed
 
 

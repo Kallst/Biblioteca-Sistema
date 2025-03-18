@@ -1,25 +1,36 @@
 
 package autonoma.bibliotecagit.app.views;
 import autonoma.bibliotecagit.app.models.Biblioteca;
+import autonoma.bibliotecagit.app.models.Libro;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+
 
 /**
- *
  * @author Luisa Fernanda Henao Posada
  * @since 20250318
  * @version 1.0.1
  */
 public class AgregarLibros extends javax.swing.JDialog {
     private Biblioteca biblioteca;
+    private VentanaPrincipal ventanaPrincipal;
 
-    public AgregarLibros(java.awt.Frame parent, boolean modal, VentanaPrincipal ventanaprincipal) {
+    public AgregarLibros(java.awt.Frame parent, boolean modal, VentanaPrincipal ventanaPrincipal, Biblioteca biblioteca) {
+        super(parent, modal); // Llamada al constructor de JDialog
         this.biblioteca = biblioteca;
+        this.ventanaPrincipal = ventanaPrincipal;
         initComponents();
-                this.setLocationRelativeTo(null);
-        try{
-            this.setIconImage(new ImageIcon(getClass().getResource("/autonoma/BibliotecaPOO/images/Biblioteca.png")).getImage());
-        }catch(Exception e){
-            
+        // Cargar la imagen del ícono
+        try {
+            java.net.URL imageUrl = getClass().getResource("/autonoma/bibliotecagit/app/images/Biblioteca.png");
+            if (imageUrl == null) {
+                System.err.println("No se pudo encontrar la imagen en la ruta especificada.");
+            } else {
+                System.out.println("Ruta de la imagen: " + imageUrl.toExternalForm());
+                this.setIconImage(new ImageIcon(imageUrl).getImage());
+            }
+        } catch (Exception e) {
+            System.err.println("Error al cargar la imagen: " + e.getMessage());
         }
     }
 
@@ -132,11 +143,34 @@ public class AgregarLibros extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+    String titulo = jTextField2.getText().trim(); // Título del libro
+        String idStr = jTextField1.getText().trim();  // ID del libro
+
+        // Validar que los campos no estén vacíos
+        if (titulo.isEmpty() || idStr.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Todos los campos son obligatorios.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        try {
+            // Convertir el ID a entero
+            int id = Integer.parseInt(idStr);
+            Libro nuevoLibro = new Libro(id, titulo);
+
+            // Agregar el libro a la biblioteca
+            boolean agregado = biblioteca.agregarLibro(nuevoLibro);
+            if (agregado) {
+                JOptionPane.showMessageDialog(this, "Libro agregado correctamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(this, "Error al agregar el libro.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "El ID debe ser un número válido.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+    this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

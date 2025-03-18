@@ -1,30 +1,37 @@
-
 package autonoma.bibliotecagit.app.views;
+
 import autonoma.bibliotecagit.app.models.Biblioteca;
-import autonoma.bibliotecagit.app.models.Libro;
+import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import java.awt.Color;
-
-/**
- *
- * @author Luisa Fernanda Henao Posada
- * @since 20250318
- * @version 1.0.0
- */
+import javax.swing.JPanel;
 
 public class VentanaPrincipal extends javax.swing.JFrame {
     private Biblioteca biblioteca;
 
-    public VentanaPrincipal() {
-        biblioteca = new Biblioteca();
+    public VentanaPrincipal(java.awt.Frame parent, boolean modal, VentanaPrincipal ventanaPrincipal, Biblioteca biblioteca) {
+        this.biblioteca = biblioteca;
         initComponents();
-        this.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(parent); // Centrar la ventana respecto a la ventana padre
+        // Cargar la imagen del ícono
         try {
-            this.setIconImage(new ImageIcon(getClass().getResource("/autonoma/BibliotecaPOO/images/Biblioteca.png")).getImage());
+            java.net.URL imageUrl = getClass().getResource("/autonoma/bibliotecagit/app/images/Biblioteca.png");
+            if (imageUrl == null) {
+                System.err.println("No se pudo encontrar la imagen en la ruta especificada.");
+            } else {
+                System.out.println("Ruta de la imagen: " + imageUrl.toExternalForm());
+                this.setIconImage(new ImageIcon(imageUrl).getImage());
+            }
         } catch (Exception e) {
-            // Manejo de excepción si la imagen no se carga
+            System.err.println("Error al cargar la imagen: " + e.getMessage());
         }
+    }
+    private void mouseEntered(JPanel panel){
+    panel.setBackground(new Color(220,200,200));
+        
+    }
+    private void mouseExited(JPanel panel){
+    panel.setBackground(new Color(87,180,186));
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -243,11 +250,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAgregarLibrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarLibrosActionPerformed
-
+    AgregarLibros agregarLibros = new AgregarLibros(this, true, this, biblioteca);
+    agregarLibros.setVisible(true); 
     }//GEN-LAST:event_btnAgregarLibrosActionPerformed
 
     private void btnActualizarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarLibroActionPerformed
-
+    
     }//GEN-LAST:event_btnActualizarLibroActionPerformed
 
     private void btnMostrarLibrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarLibrosActionPerformed
@@ -291,11 +299,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnOrdenarLibroAlfabeticamenteMouseExited
 
     private void btnBuscarLibrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarLibrosActionPerformed
-    
+    BuscarLibros buscarLibros = new BuscarLibros(this, true, this, biblioteca);
+    buscarLibros.setVisible(true);
     }//GEN-LAST:event_btnBuscarLibrosActionPerformed
 
     private void btnBuscarLibrosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarLibrosMouseEntered
- 
+
     }//GEN-LAST:event_btnBuscarLibrosMouseEntered
 
     private void btnBuscarLibrosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarLibrosMouseExited
@@ -336,5 +345,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
+
 
 }
