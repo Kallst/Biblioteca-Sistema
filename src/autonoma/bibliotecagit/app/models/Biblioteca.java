@@ -3,10 +3,11 @@ package autonoma.bibliotecagit.app.models;
 
 /**
  *
- * @author Luisa Fernanda Henao
- * @since 
- * @version 
+ * @author Luisa Fernanda Henao Posada
+ * @since 20251703
+ * @version 1.0.0
  */
+
 import java.util.ArrayList;
 public class Biblioteca {
     //Se crea la lista para almacenar los libros
