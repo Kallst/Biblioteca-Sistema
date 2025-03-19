@@ -39,4 +39,5 @@ public class Autor extends Persona{
     public void setProfesion(String profesion) {
         this.profesion = profesion;
     }
-}
+    
+     }

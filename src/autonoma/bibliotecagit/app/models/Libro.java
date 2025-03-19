@@ -1,4 +1,3 @@
-
 package autonoma.bibliotecagit.app.models;
 
 /**
@@ -8,22 +7,20 @@ package autonoma.bibliotecagit.app.models;
  * @version 1.0.0
  */
 public class Libro {
-    //Atributos
+    // Atributos
     
-    //Numero id del Libro
-    private long id;
-    
-    //titulo del Libro
-    private String titulo;
-    
-    //Metodo constructor
+    private long id; // Número ID del libro
+    private String titulo; // Título del libro
+    private Autor autor; // Autor del libro
 
-    public Libro(long id, String titulo) {
+    // Constructor
+    public Libro(long id, String titulo, Autor autor) {
         this.id = id;
         this.titulo = titulo;
+        this.autor = autor; // ✅ Se almacena el autor correctamente
     }
-    
-    //Metodos get and set
+
+    // Métodos Get y Set
 
     public long getId() {
         return id;
@@ -40,5 +37,15 @@ public class Libro {
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
-    
+
+    public Autor getAutor() { //Método para obtener el autor
+        return autor;
+    }
+
+    public void setAutor(Autor autor) { //Método para asignar un autor
+        this.autor = autor;
+    }
 }
+
+
+    

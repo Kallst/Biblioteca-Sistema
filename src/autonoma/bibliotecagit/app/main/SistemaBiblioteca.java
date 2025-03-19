@@ -9,9 +9,7 @@ public class SistemaBiblioteca {
         Biblioteca biblioteca = new Biblioteca();
 
         // Crear y mostrar la ventana principal
-        java.awt.EventQueue.invokeLater(() -> {
-            VentanaPrincipal ventanaPrincipal = new VentanaPrincipal(null, false, null, biblioteca);
-            ventanaPrincipal.setVisible(true); // Hacer visible la ventana principal
-        });
+        VentanaPrincipal ventanaPrincipal = new VentanaPrincipal(null, biblioteca);
+        ventanaPrincipal.setVisible(true); // Hacer visible la ventana principal
     }
 }

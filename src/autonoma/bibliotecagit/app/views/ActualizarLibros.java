@@ -1,8 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
- */
+
 package autonoma.bibliotecagit.app.views;
+
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -15,7 +14,14 @@ public class ActualizarLibros extends javax.swing.JDialog {
      */
     public ActualizarLibros(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
-        initComponents();
+        initComponents(); 
+        this.setLocationRelativeTo(null); // Centra la ventana en la pantalla
+        try {
+            this.setIconImage(new ImageIcon(getClass().getResource("/autonoma/CalculadoraRestaurante/images/CalculadoraRestaurante.png")).getImage());
+        } catch (Exception e) {
+            
+        }
+    
     }
 
     /**
@@ -105,6 +111,7 @@ public class ActualizarLibros extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(btnActualizarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnCerrar)
@@ -147,10 +154,10 @@ public class ActualizarLibros extends javax.swing.JDialog {
                     .addComponent(txtNuevaEditorial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnActualizarLibro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btnCerrar)
-                        .addGap(25, 25, 25))))
+                        .addGap(25, 25, 25))
+                    .addComponent(btnActualizarLibro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         pack();

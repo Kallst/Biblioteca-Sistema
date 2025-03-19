@@ -3,6 +3,7 @@ package autonoma.bibliotecagit.app.models;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 /**
  *
@@ -74,5 +75,9 @@ public class Biblioteca {
         ArrayList<Libro> librosOrdenados = new ArrayList<>(libros);
         Collections.sort(librosOrdenados, (Libro libro1, Libro libro2) -> libro1.getTitulo().compareToIgnoreCase(libro2.getTitulo()));
         return librosOrdenados;
+    }
+
+    public List<Libro> getLibros() {
+        return libros; // Retorna la lista de libros almacenados
     }
 }
