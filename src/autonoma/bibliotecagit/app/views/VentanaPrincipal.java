@@ -269,35 +269,35 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnOrdenarLibroAlfabeticamenteActionPerformed
 
     private void btnAgregarLibrosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarLibrosMouseEntered
-
+    btnAgregarLibros.setBackground(new Color(198, 128, 226));
     }//GEN-LAST:event_btnAgregarLibrosMouseEntered
 
     private void btnAgregarLibrosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarLibrosMouseExited
-        
+     btnAgregarLibros.setBackground(new Color(253, 247, 255));
     }//GEN-LAST:event_btnAgregarLibrosMouseExited
 
     private void btnActualizarLibroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarLibroMouseEntered
-
+    btnActualizarLibro.setBackground(new Color(198, 128, 226));
     }//GEN-LAST:event_btnActualizarLibroMouseEntered
 
     private void btnActualizarLibroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarLibroMouseExited
-  
+    btnActualizarLibro.setBackground(new Color(253, 247, 255));
     }//GEN-LAST:event_btnActualizarLibroMouseExited
 
     private void btnMostrarLibrosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMostrarLibrosMouseEntered
-  
+    btnMostrarLibros.setBackground(new Color(198, 128, 226));
     }//GEN-LAST:event_btnMostrarLibrosMouseEntered
 
     private void btnMostrarLibrosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMostrarLibrosMouseExited
-
+    btnMostrarLibros.setBackground(new Color(253, 247, 255));
     }//GEN-LAST:event_btnMostrarLibrosMouseExited
 
     private void btnOrdenarLibroAlfabeticamenteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnOrdenarLibroAlfabeticamenteMouseEntered
-
+     btnOrdenarLibroAlfabeticamente.setBackground(new Color(198, 128, 226));
     }//GEN-LAST:event_btnOrdenarLibroAlfabeticamenteMouseEntered
 
     private void btnOrdenarLibroAlfabeticamenteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnOrdenarLibroAlfabeticamenteMouseExited
-
+    btnOrdenarLibroAlfabeticamente.setBackground(new Color(253, 247, 255));
     }//GEN-LAST:event_btnOrdenarLibroAlfabeticamenteMouseExited
 
     private void btnBuscarLibrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarLibrosActionPerformed
@@ -306,11 +306,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscarLibrosActionPerformed
 
     private void btnBuscarLibrosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarLibrosMouseEntered
-
+    btnBuscarLibros.setBackground(new Color(198, 128, 226));
     }//GEN-LAST:event_btnBuscarLibrosMouseEntered
 
     private void btnBuscarLibrosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarLibrosMouseExited
-
+    btnBuscarLibros.setBackground(new Color(253, 247, 255));
     }//GEN-LAST:event_btnBuscarLibrosMouseExited
 
     private void btnAgregarLibrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarLibrosMouseClicked
@@ -347,10 +347,5 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
-
-    private void setLocationRelativeTo(String parent) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
 
 }
